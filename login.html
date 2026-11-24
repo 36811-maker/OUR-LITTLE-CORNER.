@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OUR LITTLE CORNER ♡ - Entrar</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-page">
+  <!-- Elementos Flutuantes de Fundo -->
+  <span class="bg-decor bg-decor-1">🌸</span>
+  <span class="bg-decor bg-decor-2">💌</span>
+  <span class="bg-decor bg-decor-3">✨</span>
+  <span class="bg-decor bg-decor-4">🧸</span>
+
+  <div class="login-card">
+    <div class="login-header">
+      <div class="login-logo">🌸</div>
+      <h1 class="login-title">OUR LITTLE CORNER</h1>
+      <p class="login-subtitle">o nosso cantinho particular de amor ♡</p>
+    </div>
+
+    <!-- 1. FORMULÁRIO DE LOGIN -->
+    <form id="form-login">
+      <div class="form-group">
+        <label class="form-label" for="login-email">E-mail:</label>
+        <input 
+          type="email" 
+          id="login-email" 
+          class="olc-input" 
+          required 
+          placeholder="seu-email@exemplo.com" 
+          autocomplete="email"
+        >
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="login-password">Senha:</label>
+        <div class="input-password-wrapper">
+          <input 
+            type="password" 
+            id="login-password" 
+            class="olc-input" 
+            required 
+            placeholder="••••••••" 
+            autocomplete="current-password"
+          >
+          <button 
+            type="button" 
+            class="toggle-password-btn" 
+            data-target="login-password" 
+            title="Mostrar ou ocultar senha"
+            aria-label="Mostrar ou ocultar senha"
+          >👁️</button>
+        </div>
+      </div>
+
+      <button type="submit" class="olc-btn olc-btn-primary" id="btn-login-submit" style="width: 100%; margin-top: 8px;">
+        Entrar
+      </button>
+
+      <div class="login-extra-links">
+        <a href="#" id="link-forgot-password">Esqueci minha senha</a>
+      </div>
+    </form>
+
+    <!-- 2. FORMULÁRIO DE RECUPERAÇÃO DE SENHA -->
+    <form id="form-reset" style="display: none;">
+      <p class="reset-description">
+        Digite seu e-mail cadastrado. Enviaremos um link seguro para você redefinir sua senha ♡
+      </p>
+
+      <div class="form-group">
+        <label class="form-label" for="reset-email">E-mail:</label>
+        <input 
+          type="email" 
+          id="reset-email" 
+          class="olc-input" 
+          required 
+          placeholder="seu-email@exemplo.com" 
+          autocomplete="email"
+        >
+      </div>
+
+      <button type="submit" class="olc-btn olc-btn-primary" id="btn-reset-submit" style="width: 100%; margin-top: 8px;">
+        Enviar Link de Recuperação
+      </button>
+
+      <div class="login-extra-links">
+        <a href="#" id="link-back-to-login">Lembrou sua senha? Voltar ao login</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

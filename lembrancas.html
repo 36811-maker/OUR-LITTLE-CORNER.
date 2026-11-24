@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OUR LITTLE CORNER ♡ - Lembranças Favoritas</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/galeria.css">
+</head>
+<body class="olc-app-layout">
+  <div id="olc-nav-container"></div>
+
+  <main class="olc-main">
+    <header class="galeria-header">
+      <div>
+        <h1 class="galeria-title">Lembranças Favoritas ⭐</h1>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem;">Nosso baú de tesouros: as cartas, desenhos e memórias mais especiais.</p>
+      </div>
+    </header>
+
+    <div class="galeria-toolbar">
+      <div class="galeria-tabs">
+        <button type="button" class="galeria-tab-btn lembranca-tab-btn active" data-tab="todas">Todas</button>
+        <button type="button" class="galeria-tab-btn lembranca-tab-btn" data-tab="cartas">Cartas ❤️</button>
+        <button type="button" class="galeria-tab-btn lembranca-tab-btn" data-tab="imagens">Desenhos & Fotos 🖼️</button>
+        <button type="button" class="galeria-tab-btn lembranca-tab-btn" data-tab="presentes">Presentes & Vales 🎁</button>
+      </div>
+    </div>
+
+    <div class="galeria-grid" id="lembrancas-grid">
+      <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+        <span class="olc-spinner"></span>
+        <p style="color: var(--color-text-muted); margin-top: 10px;">Abrindo nosso baú de lembranças...</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/lembrancas.js"></script>
+</body>
+</html>
+

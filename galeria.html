@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OUR LITTLE CORNER ♡ - Nossa Galeria</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/galeria.css">
+</head>
+<body class="olc-app-layout">
+  <div id="olc-nav-container"></div>
+
+  <main class="olc-main">
+    <header class="galeria-header">
+      <div>
+        <h1 class="galeria-title">Nossa Galeria Visual 🖼️</h1>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem;">Fotografias, desenhos e momentos congelados no tempo.</p>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <button type="button" class="olc-btn olc-btn-primary" id="btn-open-upload">
+          <span>Guardar Foto</span> 📷
+        </button>
+        <a href="desenhos.html" class="olc-btn olc-btn-secondary">
+          <span>Criar Desenho</span> 🎨
+        </a>
+      </div>
+    </header>
+
+    <!-- Toolbar de Filtros e Busca -->
+    <div class="galeria-toolbar">
+      <div class="galeria-tabs">
+        <button type="button" class="galeria-tab-btn active" data-tab="todas">Todas</button>
+        <button type="button" class="galeria-tab-btn" data-tab="desenhos">Desenhos 🎨</button>
+        <button type="button" class="galeria-tab-btn" data-tab="fotos">Fotografias 📷</button>
+        <button type="button" class="galeria-tab-btn" data-tab="favoritas">Favoritas ❤️</button>
+      </div>
+
+      <div style="display: flex; align-items: center; position: relative; min-width: 240px;">
+        <span style="position: absolute; left: 12px; color: var(--color-text-muted);">🔍</span>
+        <input type="text" id="search-gallery-input" class="olc-input" placeholder="Buscar por título ou autor..." style="padding-left: 36px;">
+      </div>
+    </div>
+
+    <!-- Grade de Polaroids -->
+    <div class="galeria-grid" id="galeria-grid">
+      <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+        <span class="olc-spinner"></span>
+        <p style="color: var(--color-text-muted); margin-top: 10px;">Carregando nossas lembranças...</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL: LIGHTBOX DE FOTO EXPANDIDA -->
+  <div class="olc-modal-overlay" id="lightbox-modal">
+    <div class="olc-modal-card lightbox-modal">
+      <div class="lightbox-content">
+        <div class="lightbox-image-wrapper">
+          <img id="lightbox-img" src="" alt="Lembrança ampliada">
+        </div>
+        <div class="lightbox-details">
+          <h2 id="lightbox-title" style="font-family: var(--font-title); font-size: 1.5rem; color: var(--color-text); margin-bottom: 6px;"></h2>
+          <p id="lightbox-author" style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 20px;"></p>
+          
+          <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px dashed var(--border-color); padding-top: 14px;">
+            <div style="display: flex; gap: 8px;">
+              <button type="button" class="olc-btn olc-btn-outline" id="lightbox-fav-btn">
+                🤍 Favoritar
+              </button>
+              <button type="button" class="olc-btn olc-btn-outline" id="lightbox-download-btn">
+                💾 Abrir Original
+              </button>
+            </div>
+            <button type="button" class="olc-btn olc-btn-primary" id="lightbox-close-btn">
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: UPLOAD DE FOTO -->
+  <div class="olc-modal-overlay" id="upload-photo-modal">
+    <div class="olc-modal-card" style="max-width: 500px;">
+      <div class="olc-modal-header">
+        <span class="olc-modal-icon">📷</span>
+        <h3 style="font-family: var(--font-title); margin: 0;">Guardar Nova Fotografia</h3>
+        <button type="button" class="olc-modal-close" id="upload-modal-close">✕</button>
+      </div>
+      <form id="upload-photo-form">
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 6px;">Selecione a Imagem:</label>
+          <input type="file" id="modal-photo-file" accept="image/*" required class="olc-input">
+        </div>
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 6px;">Legenda da Memória (Estilo Polaroid):</label>
+          <input type="text" id="modal-photo-caption" placeholder="Ex: Nosso piquenique no parque... ♡" class="olc-input" required maxlength="100">
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="submit" class="olc-btn olc-btn-primary" style="width: 100%;">
+            Guardar na Galeria ♡
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/galeria.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OUR LITTLE CORNER ♡ - Cartas</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/cartas.css">
+</head>
+<body class="olc-app-layout">
+  <div id="olc-nav-container"></div>
+
+  <main class="olc-main">
+    <header class="cartas-header">
+      <div>
+        <h1 class="cartas-title">Nossas Cartas ♡</h1>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem;">Nosso correio particular de palavras e afeto.</p>
+      </div>
+      <a href="editor-carta.html" class="olc-btn olc-btn-primary">
+        <span>Escrever Nova Carta</span> ✍️
+      </a>
+    </header>
+
+    <!-- Barra de Ferramentas: Filtros e Busca -->
+    <div class="cartas-toolbar">
+      <div class="cartas-tabs">
+        <button type="button" class="carta-tab-btn active" data-tab="todas">Todas</button>
+        <button type="button" class="carta-tab-btn" data-tab="recebidas">Recebidas</button>
+        <button type="button" class="carta-tab-btn" data-tab="enviadas">Enviadas</button>
+        <button type="button" class="carta-tab-btn" data-tab="rascunhos">Rascunhos</button>
+        <button type="button" class="carta-tab-btn" data-tab="favoritas">Favoritas ❤️</button>
+      </div>
+
+      <div class="cartas-search-box">
+        <span class="cartas-search-icon">🔍</span>
+        <input type="text" id="search-letters-input" class="olc-input" placeholder="Buscar por título ou palavras..." style="padding-left: 36px;">
+      </div>
+    </div>
+
+    <!-- Grade de Cartas -->
+    <div class="cartas-grid" id="cartas-grid">
+      <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+        <span class="olc-spinner"></span>
+        <p style="color: var(--color-text-muted); margin-top: 10px;">Buscando nossas cartas no correio...</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL: LEITOR DE CARTA EM ENVELOPE -->
+  <div class="olc-modal-overlay" id="letter-reader-modal">
+    <div class="olc-modal-card letter-reader-modal">
+      <div class="reader-envelope-cover">
+        <div>
+          <span class="olc-badge olc-badge-primary" id="reader-sender-name">De: Seu Amor</span>
+          <span style="font-size: 0.8rem; color: var(--color-text); margin-left: 8px;" id="reader-sent-date">--/--/----</span>
+        </div>
+        <button type="button" class="olc-btn olc-btn-icon olc-btn-outline" id="reader-close-btn" style="width: 32px; height: 32px;">✕</button>
+      </div>
+
+      <div class="reader-body-scroll">
+        <div id="reader-paper-container" class="olc-letter-paper paper-cream">
+          <!-- Conteúdo dinâmico da carta -->
+        </div>
+      </div>
+
+      <div class="reader-footer">
+        <div style="display: flex; gap: 8px;">
+          <button type="button" class="olc-btn olc-btn-outline" id="reader-fav-btn">
+            🤍 Favoritar
+          </button>
+          <button type="button" class="olc-btn olc-btn-outline" id="reader-versions-btn" style="font-size: 0.85rem;">
+            📜 Versões
+          </button>
+          <button type="button" class="olc-btn olc-btn-outline" id="reader-edit-btn" style="display: none;">
+            ✏️ Editar Carta
+          </button>
+        </div>
+        <button type="button" class="olc-btn olc-btn-primary" id="reader-reply-btn">
+          <span>Responder</span> 💌
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: HISTÓRICO DE VERSÕES -->
+  <div class="olc-modal-overlay" id="version-history-modal">
+    <div class="olc-modal-card" style="max-width: 500px;">
+      <div class="olc-modal-header">
+        <span class="olc-modal-icon">📜</span>
+        <h3 style="font-family: var(--font-title); margin: 0;">Histórico de Edições</h3>
+        <button type="button" class="olc-modal-close" id="version-close-btn">✕</button>
+      </div>
+      <div id="version-history-content">
+        <!-- Lista de versões -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/cartas.js"></script>
+</body>
+</html>
+

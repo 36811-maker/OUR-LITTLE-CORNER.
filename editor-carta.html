@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OUR LITTLE CORNER ♡ - Escrever Carta</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/editor.css">
+</head>
+<body class="olc-app-layout">
+  <div id="olc-nav-container"></div>
+
+  <main class="olc-main">
+    <header class="editor-header">
+      <div>
+        <h1 class="editor-title">Escrever Carta de Amor ✍️</h1>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem;">Palavras eternas escritas com calma e carinho.</p>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <!-- Indicador de Salvamento Automático -->
+        <div id="save-status-pill" class="save-status-pill saved">
+          <span>✓</span> <span>Salvo no cantinho</span>
+        </div>
+
+        <button type="button" class="olc-btn olc-btn-outline" id="editor-preview-btn">
+          <span>Prévia</span> 👁️
+        </button>
+
+        <button type="button" class="olc-btn olc-btn-primary" id="editor-send-btn">
+          <span>Selar e Enviar</span> 💌
+        </button>
+      </div>
+    </header>
+
+    <!-- Área de Trabalho do Editor -->
+    <div class="editor-workspace-grid">
+      <!-- Coluna da Folha de Carta -->
+      <div>
+        <div id="editor-sheet-container" class="editor-sheet-container olc-letter-paper paper-cream">
+          <!-- Título da Carta -->
+          <input type="text" id="editor-title-input" class="editor-letter-title-input" placeholder="Título da carta... (Ex: Para o meu amor de todos os dias ♡)" maxlength="120">
+
+          <!-- Adesivos Aplicados -->
+          <div id="editor-applied-decorations" class="editor-applied-decorations"></div>
+
+          <!-- Corpo do Texto -->
+          <textarea id="editor-content-textarea" class="editor-letter-content-textarea font-handwriting" placeholder="Querido amor... Escreva tudo o que o seu coração sente aqui. O rascunho é salvo automaticamente. ♡"></textarea>
+
+          <!-- Fotos / Desenhos Anexados -->
+          <div id="editor-attachments-preview" class="editor-attachments-preview"></div>
+        </div>
+      </div>
+
+      <!-- Coluna de Ferramentas e Personalização -->
+      <aside class="editor-tools-panel">
+        <!-- 1. Modelo de Papel -->
+        <div class="tool-group-card">
+          <h3 class="tool-group-title"><span>📜</span> Modelo do Papel</h3>
+          <div class="paper-swatch-grid" id="paper-swatch-grid">
+            <!-- Gerado dinamicamente -->
+          </div>
+        </div>
+
+        <!-- 2. Tipografia e Cores -->
+        <div class="tool-group-card">
+          <h3 class="tool-group-title"><span>✒️</span> Estilo da Caligrafia</h3>
+          <div class="font-choice-row">
+            <button type="button" class="font-choice-btn active" data-font="handwriting" style="font-family: var(--font-handwriting);">Manuscrita</button>
+            <button type="button" class="font-choice-btn" data-font="title" style="font-family: var(--font-title);">Clássica</button>
+            <button type="button" class="font-choice-btn" data-font="body" style="font-family: var(--font-body);">Moderna</button>
+          </div>
+
+          <div style="display: flex; gap: 8px; margin-top: 8px;">
+            <button type="button" class="font-choice-btn align-choice-btn active" data-align="left" title="Esquerda">⇤ Esquerda</button>
+            <button type="button" class="font-choice-btn align-choice-btn" data-align="center" title="Centro">≡ Centro</button>
+            <button type="button" class="font-choice-btn align-choice-btn" data-align="justify" title="Justificado">↔ Justificar</button>
+          </div>
+
+          <p style="font-size: 0.82rem; font-weight: 700; color: var(--color-text-muted); margin: 12px 0 6px 0;">Cor da Tinta:</p>
+          <div class="color-palette-row">
+            <button type="button" class="color-dot-btn active" data-color="#765D6C" style="background: #765D6C;" title="Tinta Séphia Original"></button>
+            <button type="button" class="color-dot-btn" data-color="#A84364" style="background: #A84364;" title="Rosa Paixão"></button>
+            <button type="button" class="color-dot-btn" data-color="#4B6660" style="background: #4B6660;" title="Verde Sálvia"></button>
+            <button type="button" class="color-dot-btn" data-color="#55446E" style="background: #55446E;" title="Lavanda Noturna"></button>
+            <button type="button" class="color-dot-btn" data-color="#805B3A" style="background: #805B3A;" title="Castanho Vintage"></button>
+          </div>
+        </div>
+
+        <!-- 3. Adesivos Delicados -->
+        <div class="tool-group-card">
+          <h3 class="tool-group-title"><span>🎀</span> Adesivos & Carimbos</h3>
+          <div class="editor-stickers-grid" id="editor-stickers-grid">
+            <!-- Gerado dinamicamente -->
+          </div>
+        </div>
+
+        <!-- 4. Anexar Fotos -->
+        <div class="tool-group-card">
+          <h3 class="tool-group-title"><span>📷</span> Anexar Fotografias</h3>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-bottom: 12px;">
+            Adicione memórias fotográficas para acompanhar suas palavras.
+          </p>
+          <label class="olc-btn olc-btn-outline" style="width: 100%; cursor: pointer;">
+            <span>Escolher Imagem</span> 📎
+            <input type="file" id="editor-photo-file" accept="image/*" style="display: none;">
+          </label>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/editor.js"></script>
+</body>
+</html>
+

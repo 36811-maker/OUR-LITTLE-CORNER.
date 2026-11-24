@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OUR LITTLE CORNER ♡ - Nosso Calendário</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/calendario.css">
+</head>
+<body class="olc-app-layout">
+  <div id="olc-nav-container"></div>
+
+  <main class="olc-main">
+    <header class="cal-header">
+      <div>
+        <h1 class="cal-title">Nosso Calendário de Amor 🗓️</h1>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem;">Aniversários, encontros planejados e momentos que merecem ser lembrados.</p>
+      </div>
+
+      <button type="button" class="olc-btn olc-btn-primary" id="btn-add-event">
+        <span>Marcar Data Especial</span> 🗓️
+      </button>
+    </header>
+
+    <div class="cal-layout-grid">
+      <!-- Cartão do Mês -->
+      <section class="calendar-card">
+        <div class="cal-month-nav">
+          <button type="button" class="olc-btn olc-btn-icon olc-btn-outline" id="cal-prev-month">◀</button>
+          <h2 class="cal-month-title" id="cal-month-title">Mês de Ano</h2>
+          <button type="button" class="olc-btn olc-btn-icon olc-btn-outline" id="cal-next-month">▶</button>
+        </div>
+
+        <div class="cal-weekdays-row">
+          <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+        </div>
+
+        <div class="cal-days-grid" id="cal-days-grid">
+          <!-- Gerado dinamicamente -->
+        </div>
+      </section>
+
+      <!-- Barra Lateral de Próximos Eventos -->
+      <aside class="events-sidebar-card">
+        <h3 style="font-family: var(--font-title); font-size: 1.2rem; color: var(--color-text); margin: 0;">
+          Próximos Marcos ♡
+        </h3>
+        <p style="font-size: 0.82rem; color: var(--color-text-muted); margin: 4px 0 14px 0;">Contando os dias para estarmos juntos.</p>
+        
+        <div class="upcoming-events-list" id="upcoming-events-list">
+          <div style="text-align: center; padding: 20px;"><span class="olc-spinner"></span></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- MODAL: MARCAR NOVA DATA -->
+  <div class="olc-modal-overlay" id="new-event-modal">
+    <div class="olc-modal-card" style="max-width: 480px;">
+      <div class="olc-modal-header">
+        <span class="olc-modal-icon">🗓️</span>
+        <h3 style="font-family: var(--font-title); margin: 0;">Marcar Data no Calendário</h3>
+        <button type="button" class="olc-modal-close" id="new-event-modal-close">✕</button>
+      </div>
+
+      <form id="new-event-form">
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 6px;">Título do Evento:</label>
+          <input type="text" id="event-title" class="olc-input" required placeholder="Ex: Aniversário de Namoro, Noite da Pizza" maxlength="60">
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 6px;">Data Especial:</label>
+          <input type="date" id="event-date" class="olc-input" required>
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 6px;">Categoria:</label>
+          <select id="event-category" class="olc-select" required>
+            <option value="anniversary">Aniversário / Marco 🎂</option>
+            <option value="date">Encontro Romântico 🕯️</option>
+            <option value="travel">Viagem / Passeio ✈️</option>
+            <option value="memory">Lembrança Especial 💍</option>
+            <option value="surprise">Surpresa Planejada 🎁</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 6px;">Descrição ou Detalhes (Opcional):</label>
+          <textarea id="event-desc" class="olc-textarea" style="min-height: 80px;" placeholder="O que vamos fazer de especial neste dia?"></textarea>
+        </div>
+
+        <button type="submit" class="olc-btn olc-btn-primary" style="width: 100%;">
+          Guardar Data no Calendário ♡
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/calendario.js"></script>
+</body>
+</html>
+

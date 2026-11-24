@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OUR LITTLE CORNER ♡ - Início</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="olc-app-layout">
+  <!-- Container de Navegação Injetada -->
+  <div id="olc-nav-container"></div>
+
+  <!-- Conteúdo Principal -->
+  <main class="olc-main">
+    <header class="dash-header">
+      <div class="dash-welcome-row">
+        <div>
+          <h1 class="dash-greeting" id="dash-greeting">Carregando nosso cantinho...</h1>
+          <p class="dash-date" id="dash-date">-- de -- de ----</p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <a href="editor-carta.html" class="olc-btn olc-btn-primary">
+            <span>Escrever Carta</span> 💌
+          </a>
+          <a href="desenhos.html" class="olc-btn olc-btn-secondary">
+            <span>Desenhar</span> 🎨
+          </a>
+        </div>
+      </div>
+
+      <!-- Banner de Frase de Amor Diária -->
+      <div class="dash-quote-banner">
+        <span class="dash-quote-icon">🌸</span>
+        <p class="dash-quote-text" id="dash-quote-text">"No nosso cantinho, cada momento é eterno..."</p>
+      </div>
+
+      <!-- Contador de Dias Juntos -->
+      <div class="days-counter-card">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <span style="font-size: 2.2rem;">🕊️</span>
+          <div>
+            <h3 style="font-family: var(--font-title); font-size: 1.15rem; margin: 0; color: var(--color-text);">Nosso Tempo Juntos</h3>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 0;">Cultivando amor a cada segundo ♡</p>
+          </div>
+        </div>
+        <div class="counter-digits-grid">
+          <div class="counter-unit">
+            <span class="counter-val" id="count-days">0</span>
+            <span class="counter-lbl">Dias</span>
+          </div>
+          <div class="counter-unit">
+            <span class="counter-val" id="count-hours">00</span>
+            <span class="counter-lbl">Horas</span>
+          </div>
+          <div class="counter-unit">
+            <span class="counter-val" id="count-minutes">00</span>
+            <span class="counter-lbl">Min</span>
+          </div>
+          <div class="counter-unit">
+            <span class="counter-val" id="count-seconds">00</span>
+            <span class="counter-lbl">Seg</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Grade de Métricas -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon-wrapper" style="background: #FFF0F4; color: #E26D8E;">💌</div>
+        <div class="stat-info">
+          <h3 id="stat-letters-received">0</h3>
+          <p>Cartas Recebidas</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon-wrapper" style="background: #F3ECF9; color: #8F69B3;">✍️</div>
+        <div class="stat-info">
+          <h3 id="stat-letters-sent">0</h3>
+          <p>Cartas Enviadas</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon-wrapper" style="background: #EBF5F3; color: #4F8074;">🎨</div>
+        <div class="stat-info">
+          <h3 id="stat-drawings">0</h3>
+          <p>Desenhos Salvos</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon-wrapper" style="background: #FDF4E3; color: #C2862B;">🎁</div>
+        <div class="stat-info">
+          <h3 id="stat-gifts">0</h3>
+          <p>Presentes & Vales</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conteúdo em 2 Colunas -->
+    <div class="dash-content-grid">
+      <!-- Coluna Principal -->
+      <div>
+        <!-- Últimas Cartas Recebidas -->
+        <div class="olc-card" style="margin-bottom: 24px;">
+          <div class="dash-section-header">
+            <h2 class="dash-section-title"><span>💌</span> Últimas Cartas para Você</h2>
+            <a href="cartas.html" class="olc-btn olc-btn-outline" style="font-size: 0.82rem; padding: 6px 14px;">Ver todas</a>
+          </div>
+          <div class="recent-letters-list" id="dash-recent-letters">
+            <div style="text-align: center; padding: 20px;"><span class="olc-spinner"></span></div>
+          </div>
+        </div>
+
+        <!-- Últimas Criações e Desenhos -->
+        <div class="olc-card">
+          <div class="dash-section-header">
+            <h2 class="dash-section-title"><span>🖼️</span> Nossas Criações Recentes</h2>
+            <a href="galeria.html" class="olc-btn olc-btn-outline" style="font-size: 0.82rem; padding: 6px 14px;">Ir para a galeria</a>
+          </div>
+          <div id="dash-recent-creations">
+            <div style="text-align: center; padding: 20px;"><span class="olc-spinner"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna Lateral -->
+      <div>
+        <!-- Bilhete Rápido (Post-it) -->
+        <div class="quick-note-box" style="margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+            <span style="font-size: 1.3rem;">📌</span>
+            <h3 style="font-family: var(--font-title); font-size: 1.1rem; margin: 0; color: #765D6C;">Deixar um Recadinho</h3>
+          </div>
+          <form id="quick-note-form">
+            <textarea id="quick-note-text" class="quick-note-textarea" placeholder="Escreva algo carinhoso aqui para seu amor..." required maxlength="280"></textarea>
+            <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
+              <button type="submit" class="olc-btn olc-btn-primary" style="font-size: 0.85rem; padding: 7px 16px;">
+                Colar no Cantinho ♡
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Atalhos Românticos -->
+        <div class="olc-card">
+          <h3 style="font-family: var(--font-title); font-size: 1.1rem; margin-bottom: 14px; color: var(--color-text);">
+            Atalhos Especiais
+          </h3>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <a href="presentes.html" class="olc-btn olc-btn-outline" style="justify-content: flex-start;">
+              <span>🎁</span> Enviar um Vale ou Surpresa
+            </a>
+            <a href="mural.html" class="olc-btn olc-btn-outline" style="justify-content: flex-start;">
+              <span>📌</span> Ver Mural Compartilhado
+            </a>
+            <a href="calendario.html" class="olc-btn olc-btn-outline" style="justify-content: flex-start;">
+              <span>🗓️</span> Próximas Datas Especiais
+            </a>
+            <a href="secreto.html" class="olc-btn olc-btn-outline" style="justify-content: flex-start;">
+              <span>🗝️</span> Abrir Nosso Baú Secreto
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
+

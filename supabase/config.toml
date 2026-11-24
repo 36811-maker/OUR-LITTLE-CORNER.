@@ -1,0 +1,5 @@
+project_id = "our-little-corner"
+
+[functions.init-accounts]
+verify_jwt = false
+

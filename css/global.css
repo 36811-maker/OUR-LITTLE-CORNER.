@@ -1,0 +1,451 @@
+/**
+ * OUR LITTLE CORNER 1.0 ♡
+ * css/global.css - Sistema de Cores, Tipografia, Temas e Componentes Base
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Nunito:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+:root {
+  /* Paleta Base Solicitada */
+  --color-primary: #F4B8CC;
+  --color-primary-hover: #EAA3BA;
+  --color-lavender: #E5D8F5;
+  --color-lavender-hover: #D7C4ED;
+  --color-cream: #FFF4E8;
+  --color-vintage-rose: #D9B5C7;
+  --color-sage: #C8D9D5;
+  --color-soft-blue: #B7CDE0;
+  --color-text: #765D6C;
+  --color-text-muted: #9C8392;
+  --color-pearl-white: #FFFCFA;
+
+  /* Superfícies e Bordas */
+  --bg-page: #FDF9F6;
+  --bg-card: #FFFFFF;
+  --border-color: #EED7E2;
+  --border-radius-sm: 8px;
+  --border-radius-md: 14px;
+  --border-radius-lg: 22px;
+  --border-radius-full: 9999px;
+
+  /* Sombras Delicadas */
+  --shadow-sm: 0 2px 8px rgba(118, 93, 108, 0.05);
+  --shadow-md: 0 6px 18px rgba(118, 93, 108, 0.08);
+  --shadow-lg: 0 12px 30px rgba(118, 93, 108, 0.12);
+  --shadow-inner: inset 0 2px 4px rgba(118, 93, 108, 0.04);
+
+  /* Fontes */
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Nunito', sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+
+  /* Transições suaves */
+  --transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Tema Lavanda Suave */
+[data-theme="lavender"] {
+  --bg-page: #F9F5FC;
+  --bg-card: #FFFFFF;
+  --color-primary: #D7C4ED;
+  --color-primary-hover: #C5AEE0;
+  --border-color: #DFD0F0;
+  --color-text: #675373;
+  --color-text-muted: #8E7C99;
+}
+
+/* Tema Noturno Aconchegante (Dark Mode Romântico) */
+[data-theme="dark"] {
+  --bg-page: #231C24;
+  --bg-card: #2E2530;
+  --color-primary: #E586A5;
+  --color-primary-hover: #D86F91;
+  --color-lavender: #4A3A54;
+  --color-cream: #382E3A;
+  --color-vintage-rose: #5C4353;
+  --color-text: #FBEFF4;
+  --color-text-muted: #D1B8C7;
+  --border-color: #483745;
+  --color-pearl-white: #2E2530;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* Reset Global */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-page);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Scrollbar Bonita e Personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-vintage-rose);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Tipografia Base */
+h1, h2, h3, h4, .font-title {
+  font-family: var(--font-title);
+  color: var(--color-text);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+p, span, label, input, button {
+  font-family: var(--font-body);
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+  letter-spacing: 0.02em;
+}
+
+/* Botões */
+.olc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--border-radius-full);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: var(--transition);
+  text-decoration: none;
+  user-select: none;
+}
+
+.olc-btn:active {
+  transform: scale(0.97);
+}
+
+.olc-btn-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #EDB0C4 100%);
+  color: #5E3D52;
+  box-shadow: 0 4px 12px rgba(244, 184, 204, 0.4);
+}
+
+.olc-btn-primary:hover {
+  background: linear-gradient(135deg, var(--color-primary-hover) 0%, #E89BB2 100%);
+  box-shadow: 0 6px 16px rgba(244, 184, 204, 0.6);
+  transform: translateY(-1px);
+}
+
+.olc-btn-secondary {
+  background-color: var(--color-lavender);
+  color: #5A4766;
+}
+
+.olc-btn-secondary:hover {
+  background-color: var(--color-lavender-hover);
+  transform: translateY(-1px);
+}
+
+.olc-btn-outline {
+  background-color: transparent;
+  border-color: var(--border-color);
+  color: var(--color-text);
+}
+
+.olc-btn-outline:hover {
+  background-color: var(--color-cream);
+  border-color: var(--color-vintage-rose);
+}
+
+.olc-btn-danger {
+  background-color: #F8D7DA;
+  color: #842029;
+  border-color: #F5C2C7;
+}
+
+.olc-btn-danger:hover {
+  background-color: #F1B0B7;
+}
+
+.olc-btn-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: var(--border-radius-full);
+  font-size: 1.1rem;
+}
+
+.olc-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Campos de Formulário */
+.olc-input, .olc-textarea, .olc-select {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: var(--border-radius-md);
+  border: 1.5px solid var(--border-color);
+  background-color: var(--bg-card);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+.olc-input:focus, .olc-textarea:focus, .olc-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(244, 184, 204, 0.35);
+}
+
+.olc-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Cartões */
+.olc-card {
+  background-color: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+  transition: var(--transition);
+}
+
+.olc-card-interactive:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--color-vintage-rose);
+}
+
+/* Badges e Tags */
+.olc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: var(--border-radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.olc-badge-primary { background: var(--color-primary); color: #5E3D52; }
+.olc-badge-lavender { background: var(--color-lavender); color: #5A4766; }
+.olc-badge-sage { background: var(--color-sage); color: #3E5A53; }
+.olc-badge-blue { background: var(--color-soft-blue); color: #3A4E5E; }
+.olc-badge-cream { background: var(--color-cream); color: #6E5340; border: 1px dashed var(--color-vintage-rose); }
+
+/* Modais */
+.olc-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(66, 44, 58, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  padding: 16px;
+}
+
+.olc-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.olc-modal-card {
+  background: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 620px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px;
+  position: relative;
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.olc-modal-overlay.active .olc-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.olc-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.olc-modal-icon {
+  font-size: 1.8rem;
+}
+
+.olc-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.olc-modal-close:hover {
+  color: var(--color-text);
+  background: var(--color-cream);
+}
+
+/* Toast Notifications */
+.olc-toast-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 100000;
+  pointer-events: none;
+}
+
+.olc-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  color: var(--color-text);
+  font-size: 0.92rem;
+  font-weight: 600;
+  min-width: 280px;
+  max-width: 420px;
+  animation: slideInToast 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.olc-toast-error {
+  border-color: #E68A98;
+  background: #FFF3F5;
+}
+
+.olc-toast-success {
+  border-color: #8CC4B2;
+}
+
+.olc-toast.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.olc-toast-close {
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+@keyframes slideInToast {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Loading Spinner de Coração */
+.olc-spinner {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  animation: heartPulse 1.2s infinite ease-in-out;
+}
+
+.olc-spinner::before {
+  content: "♡";
+  font-size: 26px;
+  color: var(--color-primary);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.25); opacity: 1; }
+}
+
+/* Estado Vazio Romântico */
+.olc-empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.olc-empty-icon {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+  opacity: 0.85;
+  filter: drop-shadow(0 4px 8px rgba(244, 184, 204, 0.4));
+}
+
+.olc-empty-title {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: var(--color-text);
+}
+
+.olc-empty-desc {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  max-width: 380px;
+  margin-bottom: 20px;
+}
+

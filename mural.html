@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OUR LITTLE CORNER ♡ - Mural de Recados</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/mural.css">
+</head>
+<body class="olc-app-layout">
+  <div id="olc-nav-container"></div>
+
+  <main class="olc-main">
+    <header class="mural-header">
+      <div>
+        <h1 class="mural-title">Mural Compartilhado 📌</h1>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem;">Nosso cantinho de bilhetinhos coloridos, lembretes doces e polaroids.</p>
+      </div>
+
+      <button type="button" class="olc-btn olc-btn-primary" id="btn-add-post">
+        <span>Fixar Novo Recado</span> 📌
+      </button>
+    </header>
+
+    <!-- Quadro de Cortiça do Mural -->
+    <div class="mural-board" id="mural-board">
+      <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+        <span class="olc-spinner"></span>
+        <p style="color: var(--color-text-muted); margin-top: 10px;">Carregando nosso mural...</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL: FIXAR NOVO RECADO -->
+  <div class="olc-modal-overlay" id="new-post-modal">
+    <div class="olc-modal-card" style="max-width: 500px;">
+      <div class="olc-modal-header">
+        <span class="olc-modal-icon">📌</span>
+        <h3 style="font-family: var(--font-title); margin: 0;">Novo Bilhete para o Mural</h3>
+        <button type="button" class="olc-modal-close" id="new-post-modal-close">✕</button>
+      </div>
+
+      <form id="new-post-form">
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 6px;">O que você quer dizer para seu amor?</label>
+          <textarea id="post-content" class="olc-textarea font-handwriting" style="font-size: 1.35rem;" required placeholder="Escreva seu recadinho carinhoso aqui... ♡"></textarea>
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 6px;">Cor do Papel:</label>
+          <select id="post-color" class="olc-select">
+            <option value="#FFF4E8">Creme Aconchegante</option>
+            <option value="#FFF0F5">Rosa Amor</option>
+            <option value="#F3ECF9">Lavanda Doce</option>
+            <option value="#EBF5F3">Verde Sálvia</option>
+            <option value="#E8F1F8">Azul Céu</option>
+            <option value="#FFF9DB">Amarelo Luz</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 6px;">Foto em Polaroid (Opcional):</label>
+          <input type="file" id="post-file" accept="image/*" class="olc-input">
+        </div>
+
+        <button type="submit" class="olc-btn olc-btn-primary" style="width: 100%;">
+          Fixar no Mural ♡
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/mural.js"></script>
+</body>
+</html>
+

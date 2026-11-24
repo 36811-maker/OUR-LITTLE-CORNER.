@@ -1,0 +1,296 @@
+/**
+ * OUR LITTLE CORNER 1.0 ♡
+ * css/editor.css - Estilos do Editor de Cartas e Painel de Personalização
+ */
+
+.editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.editor-title {
+  font-family: var(--font-title);
+  font-size: 1.85rem;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+/* Indicador de Salvamento Automático */
+.save-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--border-radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: var(--color-cream);
+  border: 1px solid var(--border-color);
+  color: var(--color-text);
+  transition: var(--transition);
+}
+
+.save-status-pill.saving {
+  background: #FFF0F4;
+  color: #B54F70;
+  border-color: var(--color-primary);
+}
+
+.save-status-pill.saved {
+  background: #EBF7F2;
+  color: #387B64;
+  border-color: #A3D8C3;
+}
+
+.save-status-pill.error {
+  background: #FFF3F5;
+  color: #C0392B;
+  border-color: #F5B7B1;
+}
+
+/* Layout do Editor em 2 Colunas */
+.editor-workspace-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .editor-workspace-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Folha de Escrita */
+.editor-sheet-container {
+  box-shadow: 0 10px 30px rgba(118, 93, 108, 0.1);
+  border-radius: 12px;
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-letter-title-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-text);
+  outline: none;
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed rgba(118, 93, 108, 0.2);
+}
+
+.editor-letter-content-textarea {
+  width: 100%;
+  flex: 1;
+  min-height: 380px;
+  border: none;
+  background: transparent;
+  outline: none;
+  resize: vertical;
+  line-height: 1.8;
+  font-size: 1.35rem;
+}
+
+/* Área de Adesivos Aplicados na Folha */
+.editor-applied-decorations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.applied-sticker-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border-color);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.applied-sticker-tag button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+/* Fotos Anexadas */
+.editor-attachments-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(118, 93, 108, 0.2);
+}
+
+.attached-photo-card {
+  position: relative;
+  width: 110px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background: #FFF;
+  padding: 4px;
+}
+
+.attached-photo-card img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.attached-photo-remove {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #FFF;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Barra Lateral de Personalização (Estilos e Adesivos) */
+.editor-tools-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tool-group-card {
+  background: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.tool-group-title {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Grade de Papéis */
+.paper-swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.paper-swatch-btn {
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  background-size: cover;
+}
+
+.paper-swatch-btn:hover, .paper-swatch-btn.active {
+  border-color: #B54F70;
+  transform: scale(1.08);
+  box-shadow: 0 4px 10px rgba(181, 79, 112, 0.3);
+}
+
+/* Seletores de Tipografia */
+.font-choice-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.font-choice-btn {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.font-choice-btn.active {
+  background: var(--color-lavender);
+  border-color: var(--color-primary);
+  font-weight: 700;
+}
+
+.color-palette-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.color-dot-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.color-dot-btn.active {
+  transform: scale(1.2);
+  border-color: #000;
+}
+
+/* Grade de Adesivos para Carta */
+.editor-stickers-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.sticker-pick-btn {
+  font-size: 1.5rem;
+  background: var(--color-cream);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticker-pick-btn:hover {
+  transform: scale(1.15);
+  background: var(--color-primary);
+}
+

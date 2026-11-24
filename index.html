@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OUR LITTLE CORNER ♡</title>
+  <link rel="stylesheet" href="css/global.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: radial-gradient(circle at center, #FFF4E8 0%, #FDF9F6 100%);
+      text-align: center;
+      padding: 20px;
+    }
+    .splash-logo {
+      font-size: 3.5rem;
+      animation: heartPulse 1.8s infinite ease-in-out;
+      margin-bottom: 16px;
+    }
+    .splash-title {
+      font-family: var(--font-title);
+      font-size: 2rem;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    .splash-subtitle {
+      font-family: var(--font-handwriting);
+      font-size: 1.4rem;
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="splash-logo">🌸</div>
+  <h1 class="splash-title">OUR LITTLE CORNER</h1>
+  <p class="splash-subtitle">abrindo nosso cantinho particular... ♡</p>
+
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const session = await window.AUTH.getSession();
+      if (session) {
+        window.location.href = "dashboard.html";
+      } else {
+        window.location.href = "login.html";
+      }
+    });
+  </script>
+</body>
+</html>
+

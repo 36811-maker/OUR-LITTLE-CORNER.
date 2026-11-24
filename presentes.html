@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OUR LITTLE CORNER ♡ - Presentes & Vales</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/presentes.css">
+</head>
+<body class="olc-app-layout">
+  <div id="olc-nav-container"></div>
+
+  <main class="olc-main">
+    <header class="presentes-header">
+      <div>
+        <h1 class="presentes-title">Presentes Digitais & Vales do Amor 🎁</h1>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem;">Mimos, cupons resgatáveis e surpresas especiais para nós dois.</p>
+      </div>
+
+      <button type="button" class="olc-btn olc-btn-primary" id="btn-open-new-gift">
+        <span>Criar Presente ou Vale</span> 🎁
+      </button>
+    </header>
+
+    <!-- Toolbar de Abas -->
+    <div class="presentes-toolbar">
+      <div class="presentes-tabs">
+        <button type="button" class="presentes-tab-btn active" data-tab="todos">Todos</button>
+        <button type="button" class="presentes-tab-btn" data-tab="vales">Vales do Amor 🎟️</button>
+        <button type="button" class="presentes-tab-btn" data-tab="surpresas">Caixas de Surpresa 🎁</button>
+        <button type="button" class="presentes-tab-btn" data-tab="cartoes">Cartões de Afeto 💌</button>
+        <button type="button" class="presentes-tab-btn" data-tab="memes">Memes & Figurinhas 🧸</button>
+      </div>
+    </div>
+
+    <!-- Grade de Presentes -->
+    <div class="presentes-grid" id="presentes-grid">
+      <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+        <span class="olc-spinner"></span>
+        <p style="color: var(--color-text-muted); margin-top: 10px;">Buscando nossos mimos e presentes...</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL: CRIAR NOVO PRESENTE / VALE -->
+  <div class="olc-modal-overlay" id="new-gift-modal">
+    <div class="olc-modal-card" style="max-width: 520px;">
+      <div class="olc-modal-header">
+        <span class="olc-modal-icon">🎁</span>
+        <h3 style="font-family: var(--font-title); margin: 0;">Novo Presente para Seu Amor</h3>
+        <button type="button" class="olc-modal-close" id="new-gift-modal-close">✕</button>
+      </div>
+
+      <form id="new-gift-form">
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 6px;">Tipo de Presente:</label>
+          <select id="gift-type-select" class="olc-select" required>
+            <option value="coupon">Vale do Amor (Cupom Resgatável) 🎟️</option>
+            <option value="surprise">Caixa de Surpresa Fechada 🎁</option>
+            <option value="card">Cartão de Afeto Especial 💌</option>
+            <option value="meme">Meme ou Figurinha Divertida 🧸</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 6px;">Título do Mimo:</label>
+          <input type="text" id="gift-title" class="olc-input" required placeholder="Ex: Vale Cafuné sem Hora pra Acabar" maxlength="80">
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 6px;">Mensagem / Descrição:</label>
+          <textarea id="gift-message" class="olc-textarea" placeholder="Descreva os detalhes carinhosos deste presente..." style="min-height: 80px;"></textarea>
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 6px;">Cor do Cupom/Tema:</label>
+          <select id="gift-color" class="olc-select">
+            <option value="#F4B8CC">Rosa Suave</option>
+            <option value="#E5D8F5">Lavanda dos Sonhos</option>
+            <option value="#C8D9D5">Verde Sálvia</option>
+            <option value="#B7CDE0">Azul Aconchego</option>
+            <option value="#FFF4E8">Creme Delicado</option>
+          </select>
+        </div>
+
+        <div id="gift-image-group" style="margin-bottom: 20px; display: none;">
+          <label style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 6px;">Imagem / Meme (Opcional):</label>
+          <input type="file" id="gift-file" accept="image/*" class="olc-input">
+        </div>
+
+        <button type="submit" class="olc-btn olc-btn-primary" style="width: 100%;">
+          Enviar Presente com Amor ♡
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/presentes.js"></script>
+</body>
+</html>
+

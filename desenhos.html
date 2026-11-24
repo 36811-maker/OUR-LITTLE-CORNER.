@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OUR LITTLE CORNER ♡ - Estúdio de Desenho</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/desenhos.css">
+</head>
+<body class="olc-app-layout">
+  <div id="olc-nav-container"></div>
+
+  <main class="olc-main">
+    <header class="draw-header">
+      <div>
+        <h1 class="draw-title">Estúdio de Desenhos & Arte 🎨</h1>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem;">Crie rabiscos, ilustrações românticas ou desenhem juntos em tempo real.</p>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <!-- Indicador de Colaboração em Tempo Real -->
+        <div class="draw-collab-bar" id="collab-status-bar">
+          <div class="collab-status-dot"></div>
+          <span id="collab-status-text">Conectando tela colaborativa...</span>
+        </div>
+
+        <button type="button" class="olc-btn olc-btn-primary" id="btn-save-drawing">
+          <span>Guardar na Galeria</span> 💾
+        </button>
+      </div>
+    </header>
+
+    <!-- Layout do Estúdio -->
+    <div class="studio-layout">
+      <!-- Barra de Ferramentas Lateral -->
+      <aside class="studio-toolbox">
+        <!-- 1. Pincéis -->
+        <div>
+          <div class="tool-section-title">Pincéis & Estilos</div>
+          <div class="brush-types-grid">
+            <button type="button" class="brush-type-btn active" data-tool="pen">
+              <span style="font-size: 1.2rem;">🖌️</span>
+              <span>Pincel</span>
+            </button>
+            <button type="button" class="brush-type-btn" data-tool="fine">
+              <span style="font-size: 1.2rem;">🖋️</span>
+              <span>Caneta</span>
+            </button>
+            <button type="button" class="brush-type-btn" data-tool="marker">
+              <span style="font-size: 1.2rem;">🖍️</span>
+              <span>Marcador</span>
+            </button>
+            <button type="button" class="brush-type-btn" data-tool="texture">
+              <span style="font-size: 1.2rem;">✨</span>
+              <span>Giz</span>
+            </button>
+            <button type="button" class="brush-type-btn" data-tool="eraser">
+              <span style="font-size: 1.2rem;">🧹</span>
+              <span>Borracha</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Espessura -->
+        <div>
+          <div class="tool-section-title">Espessura do Traço</div>
+          <div class="size-slider-row">
+            <input type="range" id="brush-size-slider" min="1" max="45" value="5" class="olc-input" style="padding: 0; height: 6px;">
+            <span class="size-preview-dot" id="size-preview-dot"></span>
+          </div>
+        </div>
+
+        <!-- 3. Paleta Romântica -->
+        <div>
+          <div class="tool-section-title">Cores Românticas</div>
+          <div class="studio-color-grid">
+            <button type="button" class="studio-color-btn active" data-color="#765D6C" style="background: #765D6C;"></button>
+            <button type="button" class="studio-color-btn" data-color="#F4B8CC" style="background: #F4B8CC;"></button>
+            <button type="button" class="studio-color-btn" data-color="#E26D8E" style="background: #E26D8E;"></button>
+            <button type="button" class="studio-color-btn" data-color="#9C415B" style="background: #9C415B;"></button>
+            <button type="button" class="studio-color-btn" data-color="#E5D8F5" style="background: #E5D8F5;"></button>
+            <button type="button" class="studio-color-btn" data-color="#7A5C96" style="background: #7A5C96;"></button>
+            <button type="button" class="studio-color-btn" data-color="#C8D9D5" style="background: #C8D9D5;"></button>
+            <button type="button" class="studio-color-btn" data-color="#4B776D" style="background: #4B776D;"></button>
+            <button type="button" class="studio-color-btn" data-color="#B7CDE0" style="background: #B7CDE0;"></button>
+            <button type="button" class="studio-color-btn" data-color="#4F718F" style="background: #4F718F;"></button>
+            <button type="button" class="studio-color-btn" data-color="#FFF4E8" style="background: #FFF4E8;"></button>
+            <button type="button" class="studio-color-btn" data-color="#D99B52" style="background: #D99B52;"></button>
+            <button type="button" class="studio-color-btn" data-color="#222222" style="background: #222222;"></button>
+            <button type="button" class="studio-color-btn" data-color="#FFFFFF" style="background: #FFFFFF; border-color: #DDD;"></button>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 10px;">
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-text-muted);">Cor Personalizada:</label>
+            <input type="color" id="custom-color-picker" value="#765D6C" style="border: none; background: none; width: 32px; height: 32px; cursor: pointer;">
+          </div>
+        </div>
+
+        <!-- 4. Fundo da Tela -->
+        <div>
+          <div class="tool-section-title">Fundo da Tela</div>
+          <div style="display: flex; gap: 6px;">
+            <button type="button" class="olc-btn olc-btn-outline bg-choice-btn" data-bg="#FFFFFF" style="padding: 6px 10px; font-size: 0.8rem;">Branco</button>
+            <button type="button" class="olc-btn olc-btn-outline bg-choice-btn" data-bg="#FFF4E8" style="padding: 6px 10px; font-size: 0.8rem;">Creme</button>
+            <button type="button" class="olc-btn olc-btn-outline bg-choice-btn" data-bg="#FDF0F4" style="padding: 6px 10px; font-size: 0.8rem;">Rosa</button>
+            <button type="button" class="olc-btn olc-btn-outline bg-choice-btn" data-bg="#262127" style="padding: 6px 10px; font-size: 0.8rem;">Lousa</button>
+          </div>
+        </div>
+
+        <!-- 5. Adesivos no Canvas -->
+        <div>
+          <div class="tool-section-title">Estampar Adesivos</div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;">
+            <button type="button" class="olc-btn olc-btn-outline studio-sticker-btn" data-sticker="🌸" style="padding: 6px; font-size: 1.3rem;">🌸</button>
+            <button type="button" class="olc-btn olc-btn-outline studio-sticker-btn" data-sticker="💖" style="padding: 6px; font-size: 1.3rem;">💖</button>
+            <button type="button" class="olc-btn olc-btn-outline studio-sticker-btn" data-sticker="✨" style="padding: 6px; font-size: 1.3rem;">✨</button>
+            <button type="button" class="olc-btn olc-btn-outline studio-sticker-btn" data-sticker="🧸" style="padding: 6px; font-size: 1.3rem;">🧸</button>
+            <button type="button" class="olc-btn olc-btn-outline studio-sticker-btn" data-sticker="☕" style="padding: 6px; font-size: 1.3rem;">☕</button>
+            <button type="button" class="olc-btn olc-btn-outline studio-sticker-btn" data-sticker="🍓" style="padding: 6px; font-size: 1.3rem;">🍓</button>
+            <button type="button" class="olc-btn olc-btn-outline studio-sticker-btn" data-sticker="🎀" style="padding: 6px; font-size: 1.3rem;">🎀</button>
+            <button type="button" class="olc-btn olc-btn-outline studio-sticker-btn" data-sticker="🌙" style="padding: 6px; font-size: 1.3rem;">🌙</button>
+          </div>
+        </div>
+
+        <!-- 6. Importar Foto para desenhar por cima -->
+        <div>
+          <div class="tool-section-title">Desenhar Sobre Foto</div>
+          <label class="olc-btn olc-btn-outline" style="width: 100%; cursor: pointer; font-size: 0.85rem; padding: 8px;">
+            <span>Importar Imagem</span> 📷
+            <input type="file" id="import-photo-input" accept="image/*" style="display: none;">
+          </label>
+        </div>
+      </aside>
+
+      <!-- Palco Central do Canvas -->
+      <section class="canvas-main-stage">
+        <div class="canvas-wrapper" id="canvas-wrapper">
+          <canvas id="art-canvas"></canvas>
+
+          <!-- Cursor Flutuante do Parceiro em Tempo Real -->
+          <div class="partner-live-cursor" id="partner-cursor" style="display: none;">
+            <div class="partner-cursor-dot"></div>
+            <div class="partner-cursor-badge" id="partner-name-tag">Amor desenhando... ♡</div>
+          </div>
+        </div>
+
+        <!-- Barra Inferior de Ações da Tela -->
+        <div class="canvas-bottom-bar">
+          <div style="display: flex; gap: 8px;">
+            <button type="button" class="olc-btn olc-btn-outline" id="btn-undo" title="Desfazer">
+              <span>↶ Desfazer</span>
+            </button>
+            <button type="button" class="olc-btn olc-btn-outline" id="btn-redo" title="Refazer">
+              <span>↷ Refazer</span>
+            </button>
+            <button type="button" class="olc-btn olc-btn-outline" id="btn-add-text" title="Adicionar Frase">
+              <span>✍️ Texto</span>
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="olc-btn olc-btn-outline" id="btn-clear" style="color: #B54F70;">
+              <span>Limpar Tela</span> 🗑️
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/desenhos.js"></script>
+</body>
+</html>
+
